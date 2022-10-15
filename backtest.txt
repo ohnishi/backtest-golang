@@ -1,0 +1,33 @@
+08:00 mac起動
+08:05 windows起動
+08:10 岡三rss起動
+08:15 分足取得起動
+08:20 分足取得準備
+08:25 分足取得開始
+10:15 自動トレード起動
+10:25 自動トレード開始
+15:20 分足取得起動
+15:25 分足取得準備
+15:30 分足取得開始
+15:35 分足バックアップ
+15:40 岡三rss終了
+15:50 macバックアップ
+16:00 mac停止
+
+# 環境構築
+brew install go
+
+# バックグラウンド実行
+nohup ./backtest > backtest.log &
+
+# レポートファイルダウンロード
+scp -r hons@192.168.10.9:/home/hons/go/src/backtest/report/* /Users/hons/home/go/src/backtest/report
+
+# バッチサーバーログイン 
+ssh 192.168.10.9
+
+nano ~/.ssh/config
+Host mini
+  User hons
+  HostName 192.168.10.9
+
